@@ -1,0 +1,21 @@
+name: ci
+on:
+  push:
+  pull_request:
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: 宿主半边冒烟
+        run: node scripts/smoke.mjs
+      - name: 客户端半边冒烟
+        run: node scripts/client-smoke.mjs
+      - name: 生成内置失败音并校验
+        run: node scripts/gen-fail-tone.mjs

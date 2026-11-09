@@ -1,0 +1,6 @@
+# dsh-chime bundle layer: mount the chime notification plugin.
+# Applied automatically when "dsh-chime" is listed in the profile's
+# dsh.profile.bundles.
+- insert:
+    - id: dsh-chime
+      name: 'dsh-chime'
