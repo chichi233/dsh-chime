@@ -1,6 +1,6 @@
 # dsh-chime
 
-[![ci](https://github.com/chitang233/dsh-chime/actions/workflows/ci.yml/badge.svg)](https://github.com/chitang233/dsh-chime/actions/workflows/ci.yml)
+[![ci](https://github.com/chichi233/dsh-chime/actions/workflows/ci.yml/badge.svg)](https://github.com/chichi233/dsh-chime/actions/workflows/ci.yml)
 
 给 DeepSeek Harness 加三类提示音：**任务完成**、**任务卡住**、**任务失败**。
 每个事件一个独立音色槽，可以总开关、调音量、导入自己的音频；音频只存在本机浏览器里，不上传。

@@ -33,13 +33,13 @@
     "README.md",
     "LICENSE"
   ],
-  "author": "chitang233",
+  "author": "chichi233",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chitang233/dsh-chime.git"
+    "url": "git+https://github.com/chichi233/dsh-chime.git"
   },
-  "homepage": "https://github.com/chitang233/dsh-chime#readme",
+  "homepage": "https://github.com/chichi233/dsh-chime#readme",
   "bugs": {
-    "url": "https://github.com/chitang233/dsh-chime/issues"
+    "url": "https://github.com/chichi233/dsh-chime/issues"
   }
 }
