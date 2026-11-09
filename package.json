@@ -1,7 +1,7 @@
 {
   "name": "dsh-chime",
   "version": "0.2.1",
-  "description": "DSH 提示音插件：任务完成 / 任务卡住 / 任务失败三类事件各一个音色槽，可总开关、可调音量、可导入自己的音频；默认不带音色，装完自己配。",
+  "description": "DSH 提示音插件：任务完成 / 任务卡住 / 任务失败三类事件各带一个内置音，可总开关、可调音量、可导入自己的音频；音频只存在本机浏览器，不上传。",
   "type": "module",
   "license": "MIT",
   "keywords": [
@@ -32,5 +32,14 @@
     "cordis.patch.yml",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "author": "chitang233",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chitang233/dsh-chime.git"
+  },
+  "homepage": "https://github.com/chitang233/dsh-chime#readme",
+  "bugs": {
+    "url": "https://github.com/chitang233/dsh-chime/issues"
+  }
 }

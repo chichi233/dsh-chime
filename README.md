@@ -1,5 +1,7 @@
 # dsh-chime
 
+[![ci](https://github.com/chitang233/dsh-chime/actions/workflows/ci.yml/badge.svg)](https://github.com/chitang233/dsh-chime/actions/workflows/ci.yml)
+
 给 DeepSeek Harness 加三类提示音：**任务完成**、**任务卡住**、**任务失败**。
 每个事件一个独立音色槽，可以总开关、调音量、导入自己的音频；音频只存在本机浏览器里，不上传。
 
@@ -30,8 +32,8 @@
 
 ```bash
 # 1) 放进 profile
-cd ~/.dsh/profiles/desktop
-npm install --save dsh-chime
+cd ~/.dsh/profiles/<你的 profile 名>
+npm install --save dsh-chime   # 或 npm install ./dsh-chime-0.2.1.tgz
 # 本地开发直接链目录：
 #   "dsh-chime": "link:C:/path/to/dsh-chime"
 
