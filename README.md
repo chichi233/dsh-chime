@@ -7,7 +7,7 @@
 
 ## 现在是什么状态
 
-`0.2.1` 三条事件各自带一个内置音，**装完就能响**，不导入任何东西也能用：
+`0.2.2` 三条事件各自带一个内置音，**装完就能响**，不导入任何东西也能用：
 
 | 槽位 | 内置音 | 文件 | 来源 |
 | --- | --- | --- | --- |
@@ -33,7 +33,7 @@
 ```bash
 # 1) 放进 profile
 cd ~/.dsh/profiles/<你的 profile 名>
-npm install --save dsh-chime   # 或 npm install ./dsh-chime-0.2.1.tgz
+npm install --save dsh-chime   # 或 npm install ./dsh-chime-0.2.2.tgz
 # 本地开发直接链目录：
 #   "dsh-chime": "link:C:/path/to/dsh-chime"
 
@@ -87,11 +87,34 @@ var BUILTIN = [
   { id: 'stuck-01', kind: 'stuck', label: '卡住 1', file: 'stuck-01.mp3' },
   { id: 'fail-01', kind: 'fail', label: '失败 1', file: 'fail-01.wav' },
 ]
-var BUILTIN_VERSION = 2  // 升版本号，老用户才会自动补默认音
+var BUILTIN_VERSION = 2  // 当前是 1；加了内置音就加 1，老用户才会自动补默认音
 ```
 
 面板会按 `kind` 自动分组渲染成可点选的小胶囊，点一下试听并绑定，一个槽位可以有多颗胶囊（同一 `kind` 登记几行就有几颗）。
 某类不想出声，就不给它登记任何内置音。改完 `BUILTIN` 后浏览器刷新即生效；改宿主 `dsh/index.js` 才需要重启 DSH。
+
+## 变更记录
+
+### 0.2.2
+
+- 修复设置面板不显示：新版 DSH 把插槽服务挂在 `ctx.slots`，旧的 `ctx.get('slots')` 取不到时注册被静默跳过，表现是「提示音照响、设置里找不到面板」。现在两路都尝试，都拿不到会在控制台打印 `[dsh-chime] 找不到 slots 服务`。
+- 面板注册补 `order: 10`，排在 DSH 自带项之后。
+- README 补排错说明和本节。
+
+### 0.2.1
+
+- 三个事件各配一个内置音（完成 / 卡住 / 失败），装完即响。
+- 失败音 `fail-01.wav` 由 `scripts/gen-fail-tone.mjs` 合成。
+- 首次升级自动给空槽补默认音，不覆盖用户已导入的音。
+
+### 0.2.0
+
+- 宿主半边与客户端半边拆分，音频文件走 `/chime/audio/` 静态路由。
+- 支持导入本地音频，存在浏览器 IndexedDB。
+
+### 0.1.0
+
+- 框架版：三类事件、设置面板、开关与音量。
 
 ## 已知限制
 
