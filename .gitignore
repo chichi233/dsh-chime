@@ -2,3 +2,15 @@ node_modules/
 *.tgz
 .DS_Store
 Thumbs.db
+
+# 凭据与环境基线（privacy-check G7）
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+.npmrc
+credentials.json
