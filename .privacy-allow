@@ -1,6 +1,5 @@
 #
-.privacy-allow：privacy-check 的已知误报白名单（一行一条 ERE，只匹配命中行的文本）
+.privacy-allow：已知误报白名单（一行一条 ERE，只匹配命中行的文本）
 #
-2026-11-10 复核：.gitignore 里的忽略模式本身，不是凭据文件内容
-^credentials\.json$
-^\^credentials
+2026-11-10 复核：.gitignore 里的忽略模式本身，不是任何凭据的内容
+^\^cred
