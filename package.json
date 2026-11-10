@@ -1,6 +1,6 @@
 {
   "name": "dsh-chime",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "DSH 提示音插件：任务完成 / 任务卡住 / 任务失败三类事件各带一个内置音，可总开关、可调音量、可导入自己的音频；音频只存在本机浏览器，不上传。",
   "type": "module",
   "license": "MIT",

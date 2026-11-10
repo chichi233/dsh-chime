@@ -373,14 +373,22 @@ window.__ModuleLoader__.load({
     exports.apply = function (ctx) {
       loadLocal()
 
-      var slots = ctx.get('slots')
+      // 插槽服务：新版 DSH 挂在 ctx.slots 上（旧版是 ctx.get('slots')），两路都试，
+      // 任一不可用只记一条警告，不影响提示音本体。
+      var slots = null
+      try { if (ctx.slots && typeof ctx.slots.inject === 'function') slots = ctx.slots } catch (e) {}
+      if (!slots && typeof ctx.get === 'function') {
+        try { var legacy = ctx.get('slots'); if (legacy && typeof legacy.inject === 'function') slots = legacy } catch (e) {}
+      }
       if (slots) {
         slots.inject('settings.general.item', function () {
           return slots.register(
-            { name: 'settings.general.item', id: 'dsh-chime' },
+            { name: 'settings.general.item', id: 'dsh-chime', order: 10 },
             function () { return React.createElement(ChimeSettings, null) },
           )
         })
+      } else if (typeof console !== 'undefined' && console.warn) {
+        console.warn('[dsh-chime] 找不到 slots 服务，设置面板未注册')
       }
 
       var style = document.createElement('style')
